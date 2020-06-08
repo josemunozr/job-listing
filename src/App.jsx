@@ -1,7 +1,12 @@
 import React from 'react';
+import Header from './components/Header';
+import GlobalStyle from './assets/styles/Global';
 
 const App = () => (
-  <h1>Job listing</h1>
+  <>
+    <GlobalStyle />
+    <Header />
+  </>
 );
 
 export default App;
