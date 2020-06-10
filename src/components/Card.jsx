@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Tag from './Tag';
 import Badge from './Badge';
+import logoManage from '../assets/images/manage.svg';
 
 const CardStyled = styled.div`
   width: 100%;
@@ -10,9 +11,10 @@ const CardStyled = styled.div`
   box-shadow: 5px 9px 20px -10px #63babb;
   border-radius: 5px;
   border-left: 5px solid var(--darkCyan);
-  padding: 1em;
+  padding: 2em 1em;
   display: flex;
   flex-direction: column;
+  position: relative;
   div:first-of-type {
     border-bottom: 1px solid var(--darkGrayingCyan);
     font-weight: lighter;
@@ -52,8 +54,15 @@ const JobOptions = styled.li`
   color: var(--darkCyan);
 `;
 
+const LogoCompany = styled.img`
+  position: absolute;
+  max-width: 50px;
+  top: -25px;
+`;
+
 const Card = () => (
   <CardStyled>
+    <LogoCompany src={logoManage} alt='manage' />
     <div>
       <NameCompany>Photosnap</NameCompany>
       <Badge name='new!' color='darkGrayingCyan' />
