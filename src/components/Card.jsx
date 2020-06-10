@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Tag from './Tag';
 import Badge from './Badge';
+import LogoCompany from './LogoCompany';
 
 const CardStyled = styled.div`
   width: 100%;
@@ -10,9 +11,10 @@ const CardStyled = styled.div`
   box-shadow: 5px 9px 20px -10px #63babb;
   border-radius: 5px;
   border-left: 5px solid var(--darkCyan);
-  padding: 1em;
+  padding: 2em 1em;
   display: flex;
   flex-direction: column;
+  position: relative;
   div:first-of-type {
     border-bottom: 1px solid var(--darkGrayingCyan);
     font-weight: lighter;
@@ -52,27 +54,30 @@ const JobOptions = styled.li`
   color: var(--darkCyan);
 `;
 
-const Card = () => (
-  <CardStyled>
-    <div>
-      <NameCompany>Photosnap</NameCompany>
-      <Badge name='new!' color='darkGrayingCyan' />
-      <Badge name='featured' color='VeryDarkGrayingCyan' />
-      <JobTitle>Senior Frontend Developer</JobTitle>
-      <ListJobOptions>
-        <JobOptions>1d ago</JobOptions>
-        <JobOptions>Full Time</JobOptions>
-        <JobOptions>Usa only</JobOptions>
-      </ListJobOptions>
-    </div>
-    <div>
-      <Tag name='Fullstack' />
-      <Tag name='Senior' />
-      <Tag name='HTML' />
-      <Tag name='CSS' />
-      <Tag name='Javascrip' />
-    </div>
-  </CardStyled>
-);
+const Card = () => {
+  return (
+    <CardStyled>
+      <LogoCompany companyName='manage' alt='manage' />
+      <div>
+        <NameCompany>Photosnap</NameCompany>
+        <Badge name='new!' color='darkGrayingCyan' />
+        <Badge name='featured' color='VeryDarkGrayingCyan' />
+        <JobTitle>Senior Frontend Developer</JobTitle>
+        <ListJobOptions>
+          <JobOptions>1d ago</JobOptions>
+          <JobOptions>Full Time</JobOptions>
+          <JobOptions>Usa only</JobOptions>
+        </ListJobOptions>
+      </div>
+      <div>
+        <Tag name='Fullstack' />
+        <Tag name='Senior' />
+        <Tag name='HTML' />
+        <Tag name='CSS' />
+        <Tag name='Javascrip' />
+      </div>
+    </CardStyled>
+  );
+};
 
 export default Card;
