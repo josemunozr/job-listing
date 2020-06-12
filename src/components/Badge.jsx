@@ -11,14 +11,17 @@ const BadgeStyled = styled.span`
   text-transform: uppercase;
   font-weight: 700;
   margin: 0 5px;
-  ${(props) => props.color && css`
-    background-color: var(--${props.color})
+  ${(props) => props.type === 'new' && css`
+    background-color: var(--darkGrayingCyan);
+  `}
+  ${(props) => props.type === 'feature' && css`
+    background-color: var(--VeryDarkGrayingCyan);
   `}
 `;
 
-const Badge = ({ name, color }) => (
-  <BadgeStyled color={color}>
-    { name }
+const Badge = ({ type }) => (
+  <BadgeStyled type={type}>
+    { type }
   </BadgeStyled>
 );
 

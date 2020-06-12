@@ -60,8 +60,8 @@ const Card = () => {
       <LogoCompany companyName='manage' alt='manage' />
       <div>
         <NameCompany>Photosnap</NameCompany>
-        <Badge name='new!' color='darkGrayingCyan' />
-        <Badge name='featured' color='VeryDarkGrayingCyan' />
+        <Badge type='new' />
+        <Badge type='feature' />
         <JobTitle>Senior Frontend Developer</JobTitle>
         <ListJobOptions>
           <JobOptions>1d ago</JobOptions>
