@@ -15,9 +15,17 @@ const CardStyled = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
+  @media (min-width: 769px) {
+    flex-direction: row;
+    padding: 1em;
+    height: auto;
+  }
   div:first-of-type {
     border-bottom: 1px solid var(--darkGrayingCyan);
     font-weight: lighter;
+    @media (min-width: 769px) {
+      border-bottom: 0;
+    }
   }
   div:last-of-type {
     padding: 1.5em 0;
@@ -57,7 +65,7 @@ const JobOptions = styled.li`
 const Card = () => {
   return (
     <CardStyled>
-      <LogoCompany companyName='manage' alt='manage' />
+      <LogoCompany companyName='insure' alt='insure' />
       <div>
         <NameCompany>Photosnap</NameCompany>
         <Badge type='new' />

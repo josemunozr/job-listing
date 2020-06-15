@@ -7,11 +7,9 @@ const LogoCompanyStyled = styled.img`
   top: -25px;
 `;
 
-const LogoCompany = ({companyName}) => {
+const LogoCompany = ({ companyName }) => {
   const [img, setImg] = useState();
-
-  import(`../assets/images/${ companyName }.svg`).then((img) => setImg(img.default));
-
+  import(`../assets/images/${companyName}.svg`).then((img) => setImg(img.default));
   return (
     <LogoCompanyStyled src={img} alt={companyName} />
   );
