@@ -1,16 +1,19 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import Tag from './Tag';
 import Badge from './Badge';
 import LogoCompany from './LogoCompany';
 
 const CardStyled = styled.div`
+  ${(props) => props.active && css`
+    border-left: 5px solid var(--darkCyan);
+  `}
   width: 100%;
   height: 250px;
   background-color: #ffffff;
   box-shadow: 5px 9px 20px -10px #63babb;
   border-radius: 5px;
-  border-left: 5px solid var(--darkCyan);
+  cursor: pointer;
   padding: 2em 1em;
   display: flex;
   flex-direction: column;
@@ -19,12 +22,15 @@ const CardStyled = styled.div`
     flex-direction: row;
     padding: 1em;
     height: auto;
+    justify-content: space-between;
+    align-items: center;
   }
   div:first-of-type {
     border-bottom: 1px solid var(--darkGrayingCyan);
     font-weight: lighter;
     @media (min-width: 769px) {
       border-bottom: 0;
+      margin-left: 9em;
     }
   }
   div:last-of-type {
@@ -62,9 +68,9 @@ const JobOptions = styled.li`
   color: var(--darkCyan);
 `;
 
-const Card = () => {
+const Card = ({ active }) => {
   return (
-    <CardStyled>
+    <CardStyled active={active}>
       <LogoCompany companyName='insure' alt='insure' />
       <div>
         <NameCompany>Photosnap</NameCompany>
@@ -82,7 +88,7 @@ const Card = () => {
         <Tag name='Senior' />
         <Tag name='HTML' />
         <Tag name='CSS' />
-        <Tag name='Javascrip' />
+        <Tag name='Javascript' />
       </div>
     </CardStyled>
   );

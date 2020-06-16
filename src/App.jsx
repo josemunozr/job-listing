@@ -9,7 +9,7 @@ const App = () => (
     <GlobalStyle />
     <Header />
     <CardContainer>
-      <Card />
+      <Card active />
     </CardContainer>
   </>
 );

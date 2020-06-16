@@ -5,6 +5,12 @@ const LogoCompanyStyled = styled.img`
   position: absolute;
   max-width: 50px;
   top: -25px;
+  @media (min-width: 769px) {
+    max-width: initial;
+    top: initial;
+    bottom: 30px;
+    left: 2em;
+  }
 `;
 
 const LogoCompany = ({ companyName }) => {
