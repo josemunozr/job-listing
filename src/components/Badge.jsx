@@ -14,7 +14,7 @@ const BadgeStyled = styled.span`
   ${(props) => props.type === 'new' && css`
     background-color: var(--darkGrayingCyan);
   `}
-  ${(props) => props.type === 'feature' && css`
+  ${(props) => props.type === 'featured' && css`
     background-color: var(--VeryDarkGrayingCyan);
   `}
 `;

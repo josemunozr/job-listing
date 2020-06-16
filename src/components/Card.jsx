@@ -18,6 +18,10 @@ const CardStyled = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
+  margin-bottom: 3em;
+  @media (min-width: 426px) {
+    margin-bottom: 2em;
+  }
   @media (min-width: 769px) {
     flex-direction: row;
     padding: 1em;
@@ -68,27 +72,31 @@ const JobOptions = styled.li`
   color: var(--darkCyan);
 `;
 
-const Card = ({ active }) => {
+const Card = (props) => {
+  const { active, company, path, badges, jobDescription, publishDate, format, type, tags } = props;
   return (
     <CardStyled active={active}>
-      <LogoCompany companyName='insure' alt='insure' />
+      <LogoCompany path={path} alt={company} />
       <div>
-        <NameCompany>Photosnap</NameCompany>
-        <Badge type='new' />
-        <Badge type='feature' />
-        <JobTitle>Senior Frontend Developer</JobTitle>
+        <NameCompany>{company}</NameCompany>
+        {
+          badges && badges.map((badge) => (
+            <Badge type={badge} key={badge} />
+          ))
+        }
+        <JobTitle>{ jobDescription }</JobTitle>
         <ListJobOptions>
-          <JobOptions>1d ago</JobOptions>
-          <JobOptions>Full Time</JobOptions>
-          <JobOptions>Usa only</JobOptions>
+          <JobOptions>{publishDate}</JobOptions>
+          <JobOptions>{format}</JobOptions>
+          <JobOptions>{type}</JobOptions>
         </ListJobOptions>
       </div>
       <div>
-        <Tag name='Fullstack' />
-        <Tag name='Senior' />
-        <Tag name='HTML' />
-        <Tag name='CSS' />
-        <Tag name='Javascript' />
+        {
+          tags && tags.map((tag) => (
+            <Tag name={tag} key={tag} />
+          ))
+        }
       </div>
     </CardStyled>
   );
