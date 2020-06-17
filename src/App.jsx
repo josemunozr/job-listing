@@ -6,6 +6,8 @@ import GlobalStyle from './assets/styles/Global';
 
 const App = () => {
   const [data, setData] = useState([]);
+  const [active, setActive] = useState(false);
+
   useEffect(() => {
     fetch('../db.json')
       .then((resp) => resp.json())
@@ -19,7 +21,11 @@ const App = () => {
       <CardContainer>
         {
           data && data.map((item) => (
-            <Card active key={item.id} {...item} />
+            <Card
+              active={active}
+              key={item.id}
+              {...item}
+            />
           ))
         }
       </CardContainer>
