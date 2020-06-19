@@ -3,7 +3,6 @@ import styled, { css } from 'styled-components';
 import Tag from './Tag';
 import Badge from './Badge';
 import LogoCompany from './LogoCompany';
-import useRelativeTime from '../hooks/useRelativeTime';
 
 const CardStyled = styled.div`
   ${(props) => props.active && css`
@@ -14,7 +13,6 @@ const CardStyled = styled.div`
   background-color: #ffffff;
   box-shadow: 5px 9px 20px -10px #63babb;
   border-radius: 5px;
-  cursor: pointer;
   padding: 2em 1em;
   display: flex;
   flex-direction: column;
@@ -74,8 +72,7 @@ const JobOptions = styled.li`
 `;
 
 const Card = (props) => {
-  const { active, company, path, badges, jobDescription, publishDate, format, type, tags } = props;
-  const relativeTime = useRelativeTime(publishDate);
+  const { active, company, path, badges, jobDescription, relativeTime, format, type, tags } = props;
   return (
     <CardStyled active={active}>
       <LogoCompany path={path} alt={company} />

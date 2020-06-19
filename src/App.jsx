@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import moment from 'moment';
+import useRelativeTime from './hooks/useRelativeTime';
+import sorByDate from './util/sortByDate';
 import Header from './components/Header';
 import CardContainer from './components/CardContainer';
 import Card from './components/Card';
@@ -6,12 +9,25 @@ import GlobalStyle from './assets/styles/Global';
 
 const App = () => {
   const [data, setData] = useState([]);
-  const [active, setActive] = useState(false);
+
+  function getDataProcessed(data) {
+
+    return sorByDate(data).map((item) => {
+      item.relativeTime = useRelativeTime(item.publishDate);
+      item.active = item.relativeTime === '1d ago';
+      return item;
+    });
+  }
 
   useEffect(() => {
     fetch('../db.json')
       .then((resp) => resp.json())
-      .then((data) => setData(data));
+      .then((data) => {
+        const today = moment().format('DD-MM-YYYY');
+        data[0].publishDate = today;
+        data[1].publishDate = today;
+        setData(getDataProcessed(data));
+      });
   }, []);
 
   return (
@@ -22,7 +38,7 @@ const App = () => {
         {
           data && data.map((item) => (
             <Card
-              active={active}
+              active={item.active}
               key={item.id}
               {...item}
             />
