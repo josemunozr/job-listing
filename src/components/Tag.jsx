@@ -10,6 +10,11 @@ const TagStyled = styled.span`
   color: var(--darkGrayingCyan);
   margin: 0 10px 10px 0;
   text-align: center;
+  &:hover {
+    cursor: pointer;
+    background-color: var(--darkCyan);
+    color: white;
+  }
 `;
 
 const Tag = ({ name }) => (
