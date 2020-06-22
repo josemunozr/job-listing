@@ -1,5 +1,7 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -46,6 +48,17 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './public/index.html',
       filename: './index.html',
+    }),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: './db.json',
+          to: './',
+        },
+      ],
+    }),
+    new webpack.DefinePlugin({
+      SC_DISABLE_SPEEDY: true,
     }),
   ],
 };
