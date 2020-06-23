@@ -28,19 +28,21 @@ const CardStyled = styled.div`
     justify-content: space-between;
     align-items: center;
   }
-  div:first-of-type {
-    border-bottom: 1px solid var(--darkGrayingCyan);
-    font-weight: lighter;
-    @media (min-width: 769px) {
-      border-bottom: 0;
-      margin-left: 9em;
-    }
+`;
+
+const InfoJobStyled = styled.div`
+  border-bottom: 1px solid var(--darkGrayingCyan);
+  font-weight: lighter;
+  @media (min-width: 769px) {
+    border-bottom: 0;
+    margin-left: 9em;
   }
-  div:last-of-type {
-    padding: 1.5em 0;
-    display: flex;
-    flex-wrap: wrap;
-  }
+`;
+
+const ListTagsStyled = styled.div`
+  padding: 1.5em 0;
+  display: flex;
+  flex-wrap: wrap;
 `;
 
 const NameCompany = styled.p`
@@ -76,7 +78,7 @@ const Card = (props) => {
   return (
     <CardStyled active={active}>
       <LogoCompany path={path} alt={company} />
-      <div>
+      <InfoJobStyled>
         <NameCompany>{company}</NameCompany>
         {
           badges && badges.map((badge) => (
@@ -89,14 +91,14 @@ const Card = (props) => {
           <JobOptions>{format}</JobOptions>
           <JobOptions>{type}</JobOptions>
         </ListJobOptions>
-      </div>
-      <div>
+      </InfoJobStyled>
+      <ListTagsStyled>
         {
           tags && tags.map((tag) => (
             <Tag name={tag} key={tag} />
           ))
         }
-      </div>
+      </ListTagsStyled>
     </CardStyled>
   );
 };
