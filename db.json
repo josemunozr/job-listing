@@ -1,112 +1,180 @@
-[
-  {
-    "id": 1,
-    "company": "Photosnap",
-    "path": "assets/images/photosnap.svg",
-    "jobDescription": "Senior Frontend Developer",
-    "publishDate": "01-05-2020",
-    "format": "Full time",
-    "type": "USA only",
-    "badges": ["new", "featured"],
-    "tags": ["Frontend", "Senior", "Html", "Css", "Javascript"]
-  },
-  {
-    "id": 2,
-    "company": "Manage",
-    "path": "assets/images/manage.svg",
-    "jobDescription": "Fullstack Developer",
-    "publishDate": "23-01-2020",
-    "format": "Part time",
-    "type": "Remote",
-    "badges": ["new", "featured"],
-    "tags": ["Fullstack", "Midweight", "Pyton", "React"]
-  },
-  {
-    "id": 3,
-    "company": "Account",
-    "path": "assets/images/account.svg",
-    "jobDescription": "Junior Frontend Developer",
-    "publishDate": "05-02-2020",
-    "format": "Part time",
-    "type": "USA only",
-    "badges": ["new"],
-    "tags": ["Frontend", "Junior", "React", "Sass", "Javascript"]
-  },
-  {
-    "id": 4,
-    "company": "MyHome",
-    "path": "assets/images/myhome.svg",
-    "jobDescription": "Junior Frontend Developer",
-    "publishDate": "03-06-2020",
-    "format": "Contract",
-    "type": "Worldwide",
-    "badges": [],
-    "tags": ["Frontend", "Junior", "Css", "Javascript"]
-  },
-  {
-    "id": 5,
-    "company": "Loop Studios",
-    "path": "assets/images/loop-studios.svg",
-    "jobDescription": "Software Engineer",
-    "publishDate": "01-04-2020",
-    "format": "Full Time",
-    "type": "Worldwide",
-    "badges": [],
-    "tags": ["Fullstack", "Midweight", "Javascript", "Sass", "Ruby"]
-  },
-  {
-    "id": 6,
-    "company": "Faceit",
-    "path": "assets/images/faceit.svg",
-    "jobDescription": "Junior Backend Developer",
-    "publishDate": "07-06-2020",
-    "format": "Full Time",
-    "type": "UK only",
-    "badges": [],
-    "tags": ["Backend", "Junior", "Ruby", "RoR"]
-  },
-  {
-    "id": 7,
-    "company": "Shortly",
-    "path": "assets/images/shortly.svg",
-    "jobDescription": "Junior Developer",
-    "publishDate": "07-06-2020",
-    "format": "Full Time",
-    "type": "Worldwide",
-    "badges": [],
-    "tags": ["Frontend", "Junior", "Html", "Sass", "Javascript"]
-  },
-  {
-    "id": 8,
-    "company": "Insure",
-    "path": "assets/images/insure.svg",
-    "jobDescription": "Junior Frontend Developer",
-    "publishDate": "02-04-2020",
-    "format": "Full Time",
-    "type": "USA only",
-    "badges": [],
-    "tags": ["Frontend", "Junior", "Vue", "Javascript", "Sass"]
-  },
-  {
-    "id": 9,
-    "company": "Eyecam Co.",
-    "path": "assets/images/eyecam-co.svg",
-    "jobDescription": "Full Stack Engineer",
-    "publishDate": "09-04-2020",
-    "format": "Full Time",
-    "type": "Worldwide",
-    "badges": [],
-    "tags": ["Fullstack", "Midweight", "Javascript","Django", "Python"]
-  },
-  {
-    "id": 10,
-    "company": "The Air Filter Company",
-    "path": "assets/images/the-air-filter-company.svg",
-    "jobDescription": "Front-end Dev",
-    "publishDate": "09-03-2018",
-    "format": "Part Time",
-    "type": "Worldwide",
-    "badges": [],
-    "tags": ["Frontend", "Junior", "React", "Sass", "Javascript"]
-  }
-]
+{
+  "JobsList" : [
+    {
+      "id": 1,
+      "company": "Photosnap",
+      "path": "assets/images/photosnap.svg",
+      "jobDescription": "Senior Frontend Developer",
+      "publishDate": "01-05-2020",
+      "format": "Full time",
+      "type": "USA only",
+      "badges": ["new", "featured"],
+      "tags": ["fro001", "sen002", "htm003", "css004", "js005"]
+    },
+    {
+      "id": 2,
+      "company": "Manage",
+      "path": "assets/images/manage.svg",
+      "jobDescription": "Fullstack Developer",
+      "publishDate": "23-01-2020",
+      "format": "Part time",
+      "type": "Remote",
+      "badges": ["new", "featured"],
+      "tags": ["ful006", "mid007", "pyt008", "rea009"]
+    },
+    {
+      "id": 3,
+      "company": "Account",
+      "path": "assets/images/account.svg",
+      "jobDescription": "Junior Frontend Developer",
+      "publishDate": "05-02-2020",
+      "format": "Part time",
+      "type": "USA only",
+      "badges": ["new"],
+      "tags": ["fro001", "jun011", "rea009", "sas014", "js005"]
+    },
+    {
+      "id": 4,
+      "company": "MyHome",
+      "path": "assets/images/myhome.svg",
+      "jobDescription": "Junior Frontend Developer",
+      "publishDate": "03-06-2020",
+      "format": "Contract",
+      "type": "Worldwide",
+      "badges": [],
+      "tags": ["fro001", "jun011", "css004", "js005"]
+    },
+    {
+      "id": 5,
+      "company": "Loop Studios",
+      "path": "assets/images/loop-studios.svg",
+      "jobDescription": "Software Engineer",
+      "publishDate": "01-04-2020",
+      "format": "Full Time",
+      "type": "Worldwide",
+      "badges": [],
+      "tags": ["ful006", "mid007", "js005", "sas014", "rub012"]
+    },
+    {
+      "id": 6,
+      "company": "Faceit",
+      "path": "assets/images/faceit.svg",
+      "jobDescription": "Junior Backend Developer",
+      "publishDate": "07-06-2020",
+      "format": "Full Time",
+      "type": "UK only",
+      "badges": [],
+      "tags": ["bac010", "jun011", "rub012", "ror013"]
+    },
+    {
+      "id": 7,
+      "company": "Shortly",
+      "path": "assets/images/shortly.svg",
+      "jobDescription": "Junior Developer",
+      "publishDate": "07-06-2020",
+      "format": "Full Time",
+      "type": "Worldwide",
+      "badges": [],
+      "tags": ["fro001", "jun011", "htm003", "sas014", "js005"]
+    },
+    {
+      "id": 8,
+      "company": "Insure",
+      "path": "assets/images/insure.svg",
+      "jobDescription": "Junior Frontend Developer",
+      "publishDate": "02-04-2020",
+      "format": "Full Time",
+      "type": "USA only",
+      "badges": [],
+      "tags": ["fro001", "jun011", "vue016", "js005", "sas014"]
+    },
+    {
+      "id": 9,
+      "company": "Eyecam Co.",
+      "path": "assets/images/eyecam-co.svg",
+      "jobDescription": "Full Stack Engineer",
+      "publishDate": "09-04-2020",
+      "format": "Full Time",
+      "type": "Worldwide",
+      "badges": [],
+      "tags": ["ful006", "mid007", "js005","dja015", "pyt008"]
+    },
+    {
+      "id": 10,
+      "company": "The Air Filter Company",
+      "path": "assets/images/the-air-filter-company.svg",
+      "jobDescription": "Front-end Dev",
+      "publishDate": "09-03-2018",
+      "format": "Part Time",
+      "type": "Worldwide",
+      "badges": [],
+      "tags": ["fro001", "jun011", "rea009", "sas014", "js005"]
+    }
+  ],
+  "TagsList": [
+    {
+      "name": "Frontend",
+      "code": "fro001"
+    },
+    {
+      "name": "Senior",
+      "code": "sen002"
+    },
+    {
+      "name": "Html",
+      "code": "htm003"
+    },
+    {
+      "name": "Css",
+      "code": "css004"
+    },
+    {
+      "name": "Javascript",
+      "code": "js005"
+    },
+    {
+      "name": "Fullstack",
+      "code": "ful006"
+    },
+    {
+      "name": "Midweight",
+      "code": "mid007"
+    },
+    {
+      "name": "Python",
+      "code": "pyt008"
+    },
+    {
+      "name": "React",
+      "code": "rea009"
+    },
+    {
+      "name": "Backend",
+      "code": "bac010"
+    },
+    {
+      "name": "Junior",
+      "code": "jun011"
+    },
+    {
+      "name": "Ruby",
+      "code": "rub012"
+    },
+    {
+      "name": "RoR",
+      "code": "ror013"
+    },
+    {
+      "name": "Sass",
+      "code": "sas014"
+    },
+    {
+      "name": "Django",
+      "code": "dja015"
+    },
+    {
+      "name": "Vue",
+      "code": "vue016"
+    }
+  ]
+}

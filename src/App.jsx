@@ -9,7 +9,8 @@ import Filter from './components/Filter';
 import GlobalStyle from './assets/styles/Global';
 
 const App = () => {
-  const [data, setData] = useState([]);
+  const [jobsList, setJobList] = useState([]);
+  const [tagsList, setTagList] = useState([]);
 
   function getDataProcessed(data) {
     return sorByDate(data).map((item) => {
@@ -23,11 +24,11 @@ const App = () => {
     fetch('../db.json')
       .then((resp) => resp.json())
       .then((data) => {
+        setTagList(data.TagsList);
         const today = moment().format('DD-MM-YYYY');
-        console.log(today);
-        data[0].publishDate = today;
-        data[1].publishDate = today;
-        setData(getDataProcessed(data));
+        data.JobsList[0].publishDate = today;
+        data.JobsList[1].publishDate = today;
+        setJobList(getDataProcessed(data.JobsList));
       });
   }, []);
 
@@ -35,16 +36,19 @@ const App = () => {
     <>
       <GlobalStyle />
       <Header />
-      <Filter />
+      <Filter tagList={tagsList} />
       <CardContainer>
         {
-          data && data.map((item) => (
-            <Card
-              active={item.active}
-              key={item.id}
-              {...item}
-            />
-          ))
+          jobsList && jobsList.map((item) => {
+            item.tags = item.tags.map((tag) => tagsList.filter((item) => item.code === tag)[0]);
+            return (
+              <Card
+                active={item.active}
+                key={item.id}
+                {...item}
+              />
+            );
+          })
         }
       </CardContainer>
     </>
