@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Tag from './Tag';
 
@@ -14,6 +14,7 @@ const FilterStyled = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 `;
 
 const ClearStyled = styled.p`
@@ -25,17 +26,57 @@ const ClearStyled = styled.p`
   }
 `;
 
-const Filter = () => {
+const ListTagsContainer = styled.div`
+  background-color: white;
+  box-shadow: 5px 9px 20px -10px #63babb;
+  border-top: 1px solid #63babb;
+  width: 100%;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  padding: 1em;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+const Filter = ({ tagList }) => {
+  const listTagsToFilter = tagList.slice();
+  const [filteredTags, setFilteredTags] = useState([]);
+
+  function handleAddTagToFilter(tag) {
+    setFilteredTags((filteredTags) => [...filteredTags, tag]);
+  }
+
   return (
     <FilterStyled>
       <div>
-        <Tag name='Frontend' removeActive />
+        {
+          filteredTags && filteredTags.map((tag) => (
+            <Tag
+              tag={tag}
+              key={tag.code}
+              removeActive
+            />
+          ))
+        }
       </div>
       <div>
-        <ClearStyled>
+        <ClearStyled onClick={() => setFilteredTags([])}>
           Clear
         </ClearStyled>
       </div>
+      <ListTagsContainer>
+        {
+          listTagsToFilter && listTagsToFilter.map((tag) => (
+            <Tag
+              tag={tag}
+              key={tag.code}
+              handleClick={handleAddTagToFilter}
+            />
+          ))
+        }
+      </ListTagsContainer>
     </FilterStyled>
   );
 };
