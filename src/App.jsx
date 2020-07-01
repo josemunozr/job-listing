@@ -36,7 +36,11 @@ const App = () => {
     <>
       <GlobalStyle />
       <Header />
-      <Filter tagList={tagsList} />
+      {
+        tagsList && tagsList.length !== 0 && (
+          <Filter tagList={tagsList} />
+        )
+      }
       <CardContainer>
         {
           jobsList && jobsList.map((item) => {
