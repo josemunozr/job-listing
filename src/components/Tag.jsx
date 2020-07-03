@@ -34,11 +34,11 @@ const IconRemoveStyled = styled.div`
   cursor: pointer;
 `;
 
-const Tag = ({ tag, removeActive, handleClick }) => (
-  <TagStyled removeActive={removeActive} onClick={() => handleClick(tag)}>
+const Tag = ({ tag, removeActive, handleAddTag, handleRemoveTag }) => (
+  <TagStyled removeActive={removeActive} onClick={() => handleAddTag && handleAddTag(tag)}>
     <span>{tag.name}</span>
     {removeActive && (
-      <IconRemoveStyled>
+      <IconRemoveStyled onClick={() => handleRemoveTag && handleRemoveTag(tag)}>
         <img src={iconRemove} alt='remove' />
       </IconRemoveStyled>
     )}

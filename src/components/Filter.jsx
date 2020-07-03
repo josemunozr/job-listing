@@ -16,9 +16,10 @@ const FilterStyled = styled.div`
 
 const BoxContainer = styled.div`
   display: flex;
-    justify-content: space-between;
-    padding: 1em;
-    align-items: center;
+  justify-content: space-between;
+  padding: 1em;
+  align-items: center;
+  min-height: 60px;
 `;
 
 const ContainerFilteredTags = styled.div`
@@ -35,6 +36,18 @@ const ClearStyled = styled.p`
   }
 `;
 
+const CloseStyled = styled.p`
+  margin: 0;
+  color: var(--darkGrayingCyan);
+  cursor: pointer;
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
 const ListTagsContainer = styled.div`
   background-color: white;
   box-shadow: 5px 9px 20px -10px #63babb;
@@ -44,6 +57,13 @@ const ListTagsContainer = styled.div`
   z-index: 1;
   display: flex;
   flex-wrap: wrap;
+  position: relative;
+`;
+
+const PlaceHolderStyled = styled.p`
+  margin: 0;
+  color: var(--darkGrayingCyan);
+  opacity: .7;
 `;
 
 const Filter = ({ tagList }) => {
@@ -65,6 +85,14 @@ const Filter = ({ tagList }) => {
     setListTagsToFilter(currentListTagstoFilter);
   }
 
+  function handleRemoveTag(tag) {
+    const currentListFilteredTags = [...filteredTags];
+    const indexTags = currentListFilteredTags.findIndex((item) => item.code === tag.code);
+    currentListFilteredTags.splice(indexTags, 1);
+    setFilteredTags(currentListFilteredTags);
+    setListTagsToFilter((listTagsToFilter) => [...listTagsToFilter, tag]);
+  }
+
   function handleClearFilteredTags() {
     setFilteredTags([]);
     setListTagsToFilter([...tagList]);
@@ -73,20 +101,30 @@ const Filter = ({ tagList }) => {
   return (
     <FilterStyled>
       <BoxContainer onClick={() => setShowListTagsToFilter(true)}>
+        {
+          filteredTags.length === 0 && (
+            <PlaceHolderStyled>Filter Jobs</PlaceHolderStyled>
+          )
+        }
         <ContainerFilteredTags>
           {
             filteredTags && filteredTags.map((tag) => (
               <Tag
                 tag={tag}
                 key={tag.code}
+                handleRemoveTag={handleRemoveTag}
                 removeActive
               />
             ))
           }
         </ContainerFilteredTags>
-        <ClearStyled onClick={handleClearFilteredTags}>
-          Clear
-        </ClearStyled>
+        {
+          filteredTags.length > 0 && (
+            <ClearStyled onClick={handleClearFilteredTags}>
+              Clear
+            </ClearStyled>
+          )
+        }
       </BoxContainer>
       {
         showlistTagsToFilter && listTagsToFilter && listTagsToFilter.length !== 0 && (
@@ -96,10 +134,11 @@ const Filter = ({ tagList }) => {
                 <Tag
                   tag={tag}
                   key={tag.code}
-                  handleClick={handleAddTagToFilter}
+                  handleAddTag={handleAddTagToFilter}
                 />
               ))
             }
+            <CloseStyled onClick={() => setShowListTagsToFilter(false)}>Close</CloseStyled>
           </ListTagsContainer>
 
         )
