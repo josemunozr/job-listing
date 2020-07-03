@@ -32,13 +32,17 @@ const App = () => {
       });
   }, []);
 
+  function handleChangeFilter(tagsFiltered) {
+    console.log(tagsFiltered);
+  }
+
   return (
     <>
       <GlobalStyle />
       <Header />
       {
         tagsList && tagsList.length !== 0 && (
-          <Filter tagList={tagsList} />
+          <Filter tagList={tagsList} handleChangeFilter={handleChangeFilter} />
         )
       }
       <CardContainer>

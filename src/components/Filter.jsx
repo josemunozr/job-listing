@@ -66,7 +66,7 @@ const PlaceHolderStyled = styled.p`
   opacity: .7;
 `;
 
-const Filter = ({ tagList }) => {
+const Filter = ({ tagList, handleChangeFilter }) => {
   const [listTagsToFilter, setListTagsToFilter] = useState([]);
   const [filteredTags, setFilteredTags] = useState([]);
   const [showlistTagsToFilter, setShowListTagsToFilter] = useState(false);
@@ -78,6 +78,9 @@ const Filter = ({ tagList }) => {
   function handleAddTagToFilter(tag) {
     //add tag to list filtered
     setFilteredTags((filteredTags) => [...filteredTags, tag]);
+    // console.log('next', filteredTags);
+
+    handleChangeFilter(filteredTags);
     //remove tag of list to filtered
     const currentListTagstoFilter = [...listTagsToFilter];
     const indexTags = currentListTagstoFilter.findIndex((item) => item.code === tag.code);
@@ -86,10 +89,13 @@ const Filter = ({ tagList }) => {
   }
 
   function handleRemoveTag(tag) {
+    //remove tag of list filtered
     const currentListFilteredTags = [...filteredTags];
     const indexTags = currentListFilteredTags.findIndex((item) => item.code === tag.code);
     currentListFilteredTags.splice(indexTags, 1);
     setFilteredTags(currentListFilteredTags);
+    handleChangeFilter(filteredTags);
+    //add tag to initial list
     setListTagsToFilter((listTagsToFilter) => [...listTagsToFilter, tag]);
   }
 
