@@ -77,10 +77,13 @@ const Filter = ({ tagList, handleChangeFilter }) => {
 
   function handleAddTagToFilter(tag) {
     //add tag to list filtered
-    setFilteredTags((filteredTags) => [...filteredTags, tag]);
+    setFilteredTags((filteredTags) => {
+      const newList = [...filteredTags, tag];
+      handleChangeFilter(newList);
+      return newList;
+    });
     // console.log('next', filteredTags);
 
-    handleChangeFilter(filteredTags);
     //remove tag of list to filtered
     const currentListTagstoFilter = [...listTagsToFilter];
     const indexTags = currentListTagstoFilter.findIndex((item) => item.code === tag.code);
@@ -93,8 +96,10 @@ const Filter = ({ tagList, handleChangeFilter }) => {
     const currentListFilteredTags = [...filteredTags];
     const indexTags = currentListFilteredTags.findIndex((item) => item.code === tag.code);
     currentListFilteredTags.splice(indexTags, 1);
-    setFilteredTags(currentListFilteredTags);
-    handleChangeFilter(filteredTags);
+    setFilteredTags(() => {
+      handleChangeFilter(currentListFilteredTags);
+      return currentListFilteredTags;
+    });
     //add tag to initial list
     setListTagsToFilter((listTagsToFilter) => [...listTagsToFilter, tag]);
   }
