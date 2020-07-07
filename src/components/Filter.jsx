@@ -75,15 +75,13 @@ const Filter = ({ tagList, handleChangeFilter }) => {
     setListTagsToFilter([...tagList]);
   }, []);
 
+  useEffect(() => {
+    handleChangeFilter(filteredTags.map((tag) => tag.code));
+  }, [filteredTags]);
+
   function handleAddTagToFilter(tag) {
     //add tag to list filtered
-    setFilteredTags((filteredTags) => {
-      const newList = [...filteredTags, tag];
-      handleChangeFilter(newList);
-      return newList;
-    });
-    // console.log('next', filteredTags);
-
+    setFilteredTags((filteredTags) => [...filteredTags, tag]);
     //remove tag of list to filtered
     const currentListTagstoFilter = [...listTagsToFilter];
     const indexTags = currentListTagstoFilter.findIndex((item) => item.code === tag.code);
@@ -96,10 +94,7 @@ const Filter = ({ tagList, handleChangeFilter }) => {
     const currentListFilteredTags = [...filteredTags];
     const indexTags = currentListFilteredTags.findIndex((item) => item.code === tag.code);
     currentListFilteredTags.splice(indexTags, 1);
-    setFilteredTags(() => {
-      handleChangeFilter(currentListFilteredTags);
-      return currentListFilteredTags;
-    });
+    setFilteredTags(currentListFilteredTags);
     //add tag to initial list
     setListTagsToFilter((listTagsToFilter) => [...listTagsToFilter, tag]);
   }
@@ -124,6 +119,7 @@ const Filter = ({ tagList, handleChangeFilter }) => {
                 tag={tag}
                 key={tag.code}
                 handleRemoveTag={handleRemoveTag}
+                filtered={false}
                 removeActive
               />
             ))

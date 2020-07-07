@@ -9,11 +9,13 @@ import Filter from './components/Filter';
 import GlobalStyle from './assets/styles/Global';
 
 const App = () => {
+  const [storeJobs, setStoreJobs] = useState([]);
   const [jobsList, setJobList] = useState([]);
   const [tagsList, setTagList] = useState([]);
 
-  function getDataProcessed(data) {
+  function getDataProcessed(data, tagList) {
     return sorByDate(data).map((item) => {
+      item.tags = item.tags.map((tag) => tagList.filter((item) => item.code === tag)[0]);
       item.relativeTime = useRelativeTime(item.publishDate);
       item.active = item.relativeTime === '1d ago' || item.relativeTime.includes('h ago');
       return item;
@@ -28,12 +30,27 @@ const App = () => {
         const today = moment().format('DD-MM-YYYY');
         data.JobsList[0].publishDate = today;
         data.JobsList[1].publishDate = today;
-        setJobList(getDataProcessed(data.JobsList));
+        const dataProcessed = getDataProcessed(data.JobsList, data.TagsList);
+        setStoreJobs(dataProcessed);
+        setJobList(dataProcessed);
       });
   }, []);
 
   function handleChangeFilter(tagsFiltered) {
-    console.log(tagsFiltered);
+    const listJobsFiltered = storeJobs.filter((job) => job.tags.some((item) => tagsFiltered.includes(item.code)));
+    if (listJobsFiltered.length !== 0) {
+      // listJobsFiltered = listJobsFiltered.map((job) => {
+      //   job.tags = job.tags.map((tag) => {
+      //     tag.filtered = true;
+      //     return tag;
+      //   });
+      //   return job;
+      // });
+      // console.log(listJobsFiltered);
+      setJobList(listJobsFiltered);
+    } else {
+      setJobList(storeJobs);
+    }
   }
 
   return (
@@ -47,16 +64,13 @@ const App = () => {
       }
       <CardContainer>
         {
-          jobsList && jobsList.map((item) => {
-            item.tags = item.tags.map((tag) => tagsList.filter((item) => item.code === tag)[0]);
-            return (
-              <Card
-                active={item.active}
-                key={item.id}
-                {...item}
-              />
-            );
-          })
+          jobsList && jobsList.map((item) => (
+            <Card
+              active={item.active}
+              key={item.id}
+              {...item}
+            />
+          ))
         }
       </CardContainer>
     </>

@@ -69,12 +69,14 @@ const JobOptions = styled.li`
     list-style: none;
     width: 75px;
   }
+  margin-right: .5em;
   width: 85px;
   color: var(--darkCyan);
 `;
 
 const Card = (props) => {
   const { active, company, path, badges, jobDescription, relativeTime, format, type, tags } = props;
+
   return (
     <CardStyled active={active}>
       <LogoCompany path={path} alt={company} />

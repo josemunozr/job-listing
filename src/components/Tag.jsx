@@ -5,9 +5,15 @@ import iconRemove from '../assets/images/icon-remove.svg';
 const TagStyled = styled.div`
   width: auto;
   height: 30px;
-  background-color: var(--background);
+  ${(props) => !props.filtered && css`
+    background-color: var(--background);
+    color: var(--darkGrayingCyan);
+  `}
+  ${(props) => props.filtered && css`
+    background-color: var(--darkCyan);
+    color: white;
+  `}
   border-radius: 3px;
-  color: var(--darkGrayingCyan);
   margin: 0 10px 10px 0;
   text-align: center;
   display: flex;
@@ -35,7 +41,7 @@ const IconRemoveStyled = styled.div`
 `;
 
 const Tag = ({ tag, removeActive, handleAddTag, handleRemoveTag }) => (
-  <TagStyled removeActive={removeActive} onClick={() => handleAddTag && handleAddTag(tag)}>
+  <TagStyled removeActive={removeActive} filtered={tag.filtered} onClick={() => handleAddTag && handleAddTag(tag)}>
     <span>{tag.name}</span>
     {removeActive && (
       <IconRemoveStyled onClick={() => handleRemoveTag && handleRemoveTag(tag)}>
