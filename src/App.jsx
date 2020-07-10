@@ -48,7 +48,14 @@ const App = () => {
       });
       setJobList(listJobsFiltered);
     } else {
-      setJobList(storeJobs);
+      const storeLitJobs = storeJobs.map((job) => {
+        job.tags = job.tags.map((tag) => {
+          tag.filtered = false;
+          return tag;
+        });
+        return job;
+      });
+      setJobList(storeLitJobs);
     }
   }
 
