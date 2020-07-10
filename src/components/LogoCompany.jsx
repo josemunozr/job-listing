@@ -13,11 +13,11 @@ const LogoCompanyStyled = styled.img`
   }
 `;
 
-const LogoCompany = ({ path, companyName }) => {
+const LogoCompany = ({ path, alt }) => {
   const [img, setImg] = useState();
   import(`../${path}`).then((img) => setImg(img.default));
   return (
-    <LogoCompanyStyled src={img} alt={companyName} />
+    <LogoCompanyStyled src={img} alt={alt} />
   );
 };
 

@@ -60,5 +60,6 @@ module.exports = {
     new webpack.DefinePlugin({
       SC_DISABLE_SPEEDY: true,
     }),
+    new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /(en|es)$/),
   ],
 };
