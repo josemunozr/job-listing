@@ -37,16 +37,15 @@ const App = () => {
   }, []);
 
   function handleChangeFilter(tagsFiltered) {
-    const listJobsFiltered = storeJobs.filter((job) => job.tags.some((item) => tagsFiltered.includes(item.code)));
+    let listJobsFiltered = storeJobs.filter((job) => job.tags.some((item) => tagsFiltered.includes(item.code)));
     if (listJobsFiltered.length !== 0) {
-      // listJobsFiltered = listJobsFiltered.map((job) => {
-      //   job.tags = job.tags.map((tag) => {
-      //     tag.filtered = true;
-      //     return tag;
-      //   });
-      //   return job;
-      // });
-      // console.log(listJobsFiltered);
+      listJobsFiltered = listJobsFiltered.map((job) => {
+        job.tags = job.tags.map((tag) => {
+          tag.filtered = tagsFiltered.includes(tag.code);
+          return tag;
+        });
+        return job;
+      });
       setJobList(listJobsFiltered);
     } else {
       setJobList(storeJobs);

@@ -97,7 +97,10 @@ const Card = (props) => {
       <ListTagsStyled>
         {
           tags && tags.map((tag) => (
-            <Tag tag={tag} key={tag.code} />
+            <Tag
+              tag={tag}
+              key={tag.code}
+            />
           ))
         }
       </ListTagsStyled>

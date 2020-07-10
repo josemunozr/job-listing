@@ -117,7 +117,7 @@ const Filter = ({ tagList, handleChangeFilter }) => {
             filteredTags && filteredTags.map((tag) => (
               <Tag
                 tag={tag}
-                key={tag.code}
+                key={tag.id}
                 handleRemoveTag={handleRemoveTag}
                 filtered={false}
                 removeActive
@@ -140,7 +140,7 @@ const Filter = ({ tagList, handleChangeFilter }) => {
               listTagsToFilter && listTagsToFilter.map((tag) => (
                 <Tag
                   tag={tag}
-                  key={tag.code}
+                  key={tag.id}
                   handleAddTag={handleAddTagToFilter}
                 />
               ))

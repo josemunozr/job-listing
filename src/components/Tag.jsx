@@ -5,13 +5,13 @@ import iconRemove from '../assets/images/icon-remove.svg';
 const TagStyled = styled.div`
   width: auto;
   height: 30px;
-  ${(props) => !props.filtered && css`
-    background-color: var(--background);
-    color: var(--darkGrayingCyan);
-  `}
   ${(props) => props.filtered && css`
     background-color: var(--darkCyan);
     color: white;
+  `}
+  ${(props) => (!props.filtered || props.removeActive) && css`
+    background-color: var(--background);
+    color: var(--darkGrayingCyan);
   `}
   border-radius: 3px;
   margin: 0 10px 10px 0;
