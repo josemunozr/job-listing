@@ -11,7 +11,7 @@ const TagStyled = styled.div`
   `}
   ${(props) => (!props.filtered || props.removeActive) && css`
     background-color: var(--background);
-    color: var(--darkGrayingCyan);
+    color: var(--darkCyan);
   `}
   border-radius: 3px;
   margin: 0 10px 10px 0;

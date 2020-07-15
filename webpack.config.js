@@ -48,6 +48,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './public/index.html',
       filename: './index.html',
+      meta: {
+        description: 'Job listing proyect',
+      },
     }),
     new CopyPlugin({
       patterns: [

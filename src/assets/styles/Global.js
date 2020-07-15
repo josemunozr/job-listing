@@ -4,8 +4,8 @@ const GlobalStyle = createGlobalStyle`
   :root {
     --background: #effafa;
     --filterTablets: #eef6f6;
-    --darkCyan: #5ba4a4;
-    --darkGrayingCyan: #7b8e8e;
+    --darkCyan: #015e5e;
+    --darkGrayingCyan: #495656;
     --VeryDarkGrayingCyan: #2c3a3a;
   }
   

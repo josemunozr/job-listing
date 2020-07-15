@@ -63,7 +63,6 @@ const ListTagsContainer = styled.div`
 const PlaceHolderStyled = styled.p`
   margin: 0;
   color: var(--darkGrayingCyan);
-  opacity: .7;
 `;
 
 const Filter = ({ tagList, handleChangeFilter }) => {
